@@ -1,3 +1,3 @@
 
-![image](/img/turtle-pi-logo.png)
+![image](/img/turtle-pi-padded.png)
 Everything turtley in one place
