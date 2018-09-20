@@ -1,3 +1,3 @@
 
-![image](https://github.com/crappyrules/turtlepi/blob/master/img/TURTLEPI.png)
+![image](/img/trtl-pi.png)
 Everything turtley in one place
