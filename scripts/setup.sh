@@ -10,15 +10,11 @@ sudo dphys-swapfile setup
 # Then we enable the new swapfile
 sudo dphys-swapfile swapon
 # These are the dependencies to run the daemon, wallets and a few other necesseties thrown in for good measure
-sudo apt install -y build-essential python-dev gcc g++ git cmake libboost-all-dev curl wget nano
+sudo apt install -y build-essential python-dev gcc g++ git cmake libboost-all-dev curl wget nano nginx
 # Installation of Nodejs and NPM
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
 # Grab the latest release of TurtleCoin from github and extract it
 wget https://github.com/turtlecoin/turtlecoin/releases/download/v0.8.3/turtlecoin-v0.8.3-aarch64.tar.gz
 tar xvf turtlecoin-v0.8.3-aarch64.tar.gz
-# Clone latest turtlecoind-ha
-git clone https://github.com/turtlecoin/turtlecoind-ha.git
-# Now copy the latest release of the daemon into turtlecoind-ha
-cp /home/pi/turtlecoin-v0.8.3/TurtleCoind /home/pi/turtlecoind-ha
-echo "TurtleCoin is now installed and ready to sync!"
+echo "TurtleCoin is now installed and ready!"
