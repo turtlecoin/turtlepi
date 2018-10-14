@@ -10,7 +10,7 @@ sudo dphys-swapfile setup
 # Then we enable the new swapfile
 sudo dphys-swapfile swapon
 # These are the dependencies to run the daemon, wallets and a few other necesseties thrown in for good measure
-sudo apt install -y build-essential python-dev gcc g++ git cmake libboost-all-dev curl wget nano nginx
+sudo apt install -y build-essential python-dev gcc g++ git cmake libboost-all-dev curl wget nano nginx unzip screen
 # Installation of Nodejs and NPM
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
@@ -19,10 +19,25 @@ wget -q https://packages.sury.org/php/apt.gpg -O- | sudo apt-key add -
 echo "deb https://packages.sury.org/php/ stretch main" | sudo tee /etc/apt/sources.list.d/php.list
 sudo apt-get install -y ca-certificates apt-transport-https
 sudo apt update
-sudo apt-get install -y php-fpm php-mcrypt php-cli php-mysql php-gd php-imagick php-recode php-tidy php-xmlrpc
+sudo apt-get install -y composer php7.2 php-fpm php-mcrypt php-cli php-gd php-imagick php-recode php-tidy php-xmlrpc
 # Grab the latest release of TurtleCoin from github and extract it
 wget https://github.com/turtlecoin/turtlecoin/releases/download/v0.8.3/turtlecoin-v0.8.3-aarch64.tar.gz
 tar xvf turtlecoin-v0.8.3-aarch64.tar.gz
 cd turtlecoin-v0.8.3
 mv zedwallet turtle-service /home/pi/
-echo "TurtleCoin is now installed and ready!"
+# Now set up the web wallet
+cd /home/pi
+wget https://github.com/crappyrules/turtlecoin-php-rpc-wallet.git wallet
+cd wallet
+composer require chillerlan/php-qrcode turtlecoin/turtlecoin-walletd-rpc-php
+sudo rm -rf /var/www/html
+sudo ln -s /home/pi/wallet /var/www/html
+#setup nginx for usage with php
+sudo rm -rf /etc/nginx/sites-available/default
+sudo wget https://github.com/turtlecoin/turtlepi/raw/master/scripts/sites-available/default /etc/nginx/sites-available/
+sudo service nginx restart
+cd ..
+./turtle-service -g -w mywallet -p changeme
+screen -d -m -S turtlewallet bash -c './turtle-service -w mywallet -p changeme --rpc-password test --bind-port 8070 --bind-address 0.0.0.0'
+
+echo "TurtleCoin is now installed and ready!  Open a browser and navigate to the IP address of this device to use your wallet!"
