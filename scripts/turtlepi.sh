@@ -33,8 +33,8 @@ composer require chillerlan/php-qrcode turtlecoin/turtlecoin-walletd-rpc-php
 sudo rm -rf /var/www/html
 sudo ln -s /home/pi/wallet /var/www/html
 #setup nginx for usage with php
-sudo rm -rf /etc/nginx/sites-available
-sudo cp -r sites-available /etc/nginx
+sudo rm -rf /etc/nginx/sites-available/default
+sudo wget https://github.com/turtlecoin/turtlepi/raw/master/scripts/sites-available/default /etc/nginx/sites-available/
 sudo service nginx restart
 cd ..
 ./turtle-service -g -w mywallet -p changeme
