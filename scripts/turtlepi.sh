@@ -31,7 +31,7 @@ git clone https://github.com/crappyrules/turtlecoin-php-rpc-wallet.git
 cd turtlecoin-php-rpc-wallet
 composer require chillerlan/php-qrcode turtlecoin/turtlecoin-walletd-rpc-php
 sudo rm -rf /var/www/html
-sudo ln -s /home/pi/wallet /var/www/html
+sudo ln -s /home/pi/turtlecoin-php-rpc-wallet /var/www/html
 cd /home/pi
 #setup nginx for usage with php
 sudo rm -rf /etc/nginx/sites-available/default
