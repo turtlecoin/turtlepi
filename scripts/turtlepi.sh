@@ -27,8 +27,8 @@ cd turtlecoin-v0.8.3
 mv zedwallet turtle-service /home/pi/
 # Now set up the web wallet
 cd /home/pi
-git clone https://github.com/crappyrules/turtlecoin-php-rpc-wallet.git wallet
-cd wallet
+git clone https://github.com/crappyrules/turtlecoin-php-rpc-wallet.git
+cd turtlecoin-php-rpc-wallet
 composer require chillerlan/php-qrcode turtlecoin/turtlecoin-walletd-rpc-php
 sudo rm -rf /var/www/html
 sudo ln -s /home/pi/wallet /var/www/html
