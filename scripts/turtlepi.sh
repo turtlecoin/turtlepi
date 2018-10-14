@@ -34,10 +34,10 @@ sudo rm -rf /var/www/html
 sudo ln -s /home/pi/wallet /var/www/html
 #setup nginx for usage with php
 sudo rm -rf /etc/nginx/sites-available/default
-sudo wget https://github.com/turtlecoin/turtlepi/raw/master/scripts/sites-available/default /etc/nginx/sites-available/
+sudo wget https://github.com/crappyrules/turtlepi/raw/master/scripts/sites-available/default /etc/nginx/sites-available/
 sudo service nginx restart
 cd ..
 ./turtle-service -g -w mywallet -p changeme
-screen -d -m -S turtlewallet bash -c './turtle-service -w mywallet -p changeme --rpc-password test --bind-port 8070 --bind-address 0.0.0.0'
+screen -d -m -S turtlewallet bash -c './turtle-service -w mywallet -p changeme --rpc-password test --bind-port 8070 --bind-address 0.0.0.0 --daemon-address shitfunnel.shitcoin.works --daemon-port 11898'
 
 echo "TurtleCoin is now installed and ready!  Open a browser and navigate to the IP address of this device to use your wallet!"
