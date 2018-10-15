@@ -35,7 +35,7 @@ sudo ln -s /home/pi/turtlecoin-php-rpc-wallet /var/www/html
 cd /home/pi
 #setup nginx for usage with php
 sudo rm -rf /etc/nginx/sites-available/default
-wget https://github.com/crappyrules/turtlepi/raw/master/scripts/sites-available/default
+wget https://github.com/turtlecoin/turtlepi/raw/master/scripts/sites-available/default
 sudo mv default /etc/nginx/sites-available
 sudo service nginx restart
 ./turtle-service -g -w mywallet -p changeme
