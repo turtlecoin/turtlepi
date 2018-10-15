@@ -43,4 +43,6 @@ screen -d -m -S turtlewallet bash -c './turtle-service -w mywallet -p changeme -
 wget https://github.com/turtlecoin/turtlepi/raw/master/scripts/crontabs/pi
 crontab -u pi pi
 rm pi turtlepi.sh
+wget https://github.com/turtlecoin/turtlepi/raw/master/scripts/turtlepi2.sh
+chmod +x /home/pi/turtlepi2.sh
 echo "TurtleCoin is now installed and ready!  Open a browser and navigate to the IP address of this device to use your wallet!"
