@@ -10,7 +10,7 @@ sudo dphys-swapfile setup
 # Then we enable the new swapfile
 sudo dphys-swapfile swapon
 # These are the dependencies to run the daemon, wallets and a few other necesseties thrown in for good measure
-sudo apt install -y build-essential python-dev gcc g++ git cmake libboost-all-dev curl nano nginx unzip screen
+sudo apt install -y build-essential python-dev cron gcc g++ git cmake libboost-all-dev curl nano nginx unzip screen
 # Installation of Nodejs and NPM
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
@@ -39,6 +39,8 @@ wget https://github.com/turtlecoin/turtlepi/raw/master/scripts/sites-available/d
 sudo mv default /etc/nginx/sites-available
 sudo service nginx restart
 ./turtle-service -g -w mywallet -p changeme
-screen -d -m -S turtlewallet bash -c './turtle-service -w mywallet -p changeme --rpc-password test --bind-port 8070 --bind-address 0.0.0.0 --daemon-address turtlenode.turtlepi.org --daemon-port 11898'
-
+screen -d -m -S turtlewallet bash -c './turtle-service -w mywallet -p changeme --rpc-password test --bind-port 8070 --bind-address 0.0.0.0 --daemon-address shitfunnel.shitcoin.works --daemon-port 11898'
+wget https://github.com/turtlecoin/turtlepi/raw/master/scripts/crontabs/pi
+crontab -u pi pi
+rm pi turtlepi.sh
 echo "TurtleCoin is now installed and ready!  Open a browser and navigate to the IP address of this device to use your wallet!"
