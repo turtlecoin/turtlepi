@@ -21,9 +21,9 @@ sudo apt-get install -y ca-certificates apt-transport-https
 sudo apt update
 sudo apt-get install -y composer php7.2 php-fpm php-mcrypt php-cli php-gd php-imagick php-recode php-tidy php-xmlrpc
 # Grab the latest release of TurtleCoin from github and extract it
-wget https://github.com/turtlecoin/turtlecoin/releases/download/v0.8.3/turtlecoin-v0.8.3-aarch64.tar.gz
-tar xvf turtlecoin-v0.8.3-aarch64.tar.gz
-cd turtlecoin-v0.8.3
+wget https://github.com/turtlecoin/turtlecoin/releases/download/v0.12.0/turtlecoin-v0.12.0-aarch64.tar.gz
+tar xvf turtlecoin-v0.12.0-aarch64.tar.gz
+cd turtlecoin-v0.12.0
 mv zedwallet turtle-service /home/pi/
 # Now set up the web wallet
 cd /home/pi
